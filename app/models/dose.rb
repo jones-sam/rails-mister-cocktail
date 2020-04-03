@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 class Dose < ApplicationRecord
-  belongs_to :cocktail, presence: true, unique: true
-  belongs_to :ingredient, presence: true, unique: true
+  belongs_to :cocktail
+  belongs_to :ingredient
 
-  validates_presence_of :description
+  validates :description, presence: true
+
+  # TODO: Dose is uniqe for a given cocktail/ingredient couple
 end
