@@ -1,2 +1,49 @@
-<h1>Cocktails#index</h1>
-<p>Find me in app/views/cocktails/index.html.erb</p>
+<div class="waveWrapper waveAnimation">
+  <div class="waveWrapperInner bgTop">
+
+    <%# put stuff here %>
+    <div class="container">
+      <h1 class="text-white cocktail-title fadein">Mister Cocktail</h1>
+      <div class="row cocktails fadein">
+        <% @cocktails.each do |cocktail| %>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+
+          <div class="d-flex justify-content-center">
+            <div class="cocktail rounded shadow">
+              <h4 class="text-center mt-2"><%= cocktail.name %></h4>
+              <hr class="w-100">
+
+              <h6 class="ml-2 mt-1">Ingredients:</h6>
+              <ul>
+                <% cocktail.ingredients.each do |ingredient|%>
+                <li><%= ingredient.name %></li>
+                <% end %>
+              </ul>
+              <div class="btn-div">
+                <%= link_to 'View', cocktail_path(cocktail.id), class: "view-btn" %>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <% end %>
+
+      </div>
+    </div>
+
+
+
+
+    <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')">
+    </div>
+  </div>
+  <div class="waveWrapperInner bgMiddle">
+    <div class="wave waveMiddle" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')">
+
+    </div>
+  </div>
+  <div class="waveWrapperInner bgBottom">
+    <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')">
+    </div>
+  </div>
+</div>

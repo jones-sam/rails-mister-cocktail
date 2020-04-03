@@ -12,10 +12,21 @@ require 'json'
 
 response = open('https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list')
 ingredients = JSON.parse(response.string)
-ingredients['drinks'].each do |ingredient|
-  Ingredient.create(name: ingredient['strIngredient1'])
-end
 
-# Ingredient.create(name: 'lemon')
-# Ingredient.create(name: 'ice')
-# Ingredient.create(name: 'mint leaves')
+Ingredient.destroy_all
+Cocktail.destroy_all
+Dose.destroy_all
+
+ingredients['drinks'].each do |ingredient|
+  i = Ingredient.create(name: ingredient['strIngredient1'])
+
+  cocktail = Cocktail.create(
+    name: Faker::Beer.name
+  )
+
+  Dose.create(
+    cocktail_id: cocktail.id,
+    ingredient_id: i.id,
+    description: Faker::Food.measurement
+  )
+end
