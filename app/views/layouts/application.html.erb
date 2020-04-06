@@ -16,7 +16,6 @@
 <body>
   <div class="waveWrapper waveAnimation">
     <div class="waveWrapperInner bgTop">
-      <% puts request.env['PATH_INFO'] %>
       <% unless request.env['PATH_INFO'] == "/cocktails" %>
       <%= link_to cocktails_path do %>
       <h3 class="text-white position-absolute m-4 fadein">Mister Cocktail</h3>
