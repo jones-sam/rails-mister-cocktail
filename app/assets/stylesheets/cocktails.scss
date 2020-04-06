@@ -91,6 +91,13 @@ hr {
   padding: 16px;
 }
 
+.delete-icon {
+  color: black;
+  &:hover {
+    color: red;
+  }
+}
+
 @keyframes fadein {
   from {
     opacity: 0;

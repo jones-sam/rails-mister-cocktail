@@ -2,21 +2,30 @@
 <div class="container">
     <h1 class="text-white cocktail-title fadein"><%= @cocktail.name %></h1>
     <div class="show-cocktail shadow rounded fadein">
-        <div class="row align-items-center">
-            <div class="col-sm-12 col-md-4">
+        <div class="row ">
+            <div class="col-sm-12 col-lg-4">
                 <img src=<%= Faker::Placeholdit.image %> alt="">
 
             </div>
 
-            <div class="col-sm-12 col-md-4">
+            <div class="col-sm-12 col-lg-4">
+                <% if @cocktail.doses.empty? %>
+                <h3>Add some Ingredients -></h3>
+                <% else %>
                 <h3>Instructions:</h3>
                 <% @cocktail.doses.each do |dose| %>
-                <p><%= dose.ingredient.name %>: <%= dose.description %></p>
+                <p><%= dose.ingredient.name %>:
+                    <%= dose.description %><%= link_to  cocktail_dose_path(@cocktail.id, dose), method: "delete", class: "text-decoration-none" do %>
+                    <i class="fa fa-trash delete-icon"></i>
+
+                    <% end %></p>
+
+                <% end %>
                 <% end %>
 
             </div>
 
-            <div class="col-sm-12 col-md-4">
+            <div class="col-sm-12 col-lg-4">
                 <%= simple_form_for([@cocktail, @dose]) do |f| %>
                 <%= f.association :ingredient %>
                 <%= f.input :description %>
