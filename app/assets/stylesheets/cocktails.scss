@@ -17,7 +17,7 @@
 
 .cocktail-title {
   text-align: center;
-  margin: 6% 0;
+  margin: 6% 0 2% 0;
   font-size: 64px;
 }
 .fadein {
@@ -34,37 +34,61 @@
 }
 
 .cocktails {
-  max-height: 80vh;
+  max-height: 75vh;
   overflow-y: scroll;
 }
-.btn-div {
-  width: 100%;
-  margin-top: auto;
-  margin-bottom: 10px;
+
+.create-new-div {
   display: flex;
   justify-content: center;
-  .view-btn {
-    text-align: center;
-    color: #86377b;
+  margin-bottom: 4%;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+hr {
+  margin: 5px 0;
+}
+
+.view-link {
+  width: 100%;
+  margin-top: auto;
+  padding: 10px 0;
+
+  background-color: #484d51;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+
+  &:hover {
+    color: white;
+    background-color: #27273c;
   }
 }
 
 .show-cocktail {
   width: 100%;
-  height: 50vh;
+  height: auto;
   background-color: white;
-}
-
-@keyframes move_wave {
-  0% {
-    transform: translateX(0) translateZ(0) scaleY(1);
-  }
-  50% {
-    transform: translateX(-25%) translateZ(0) scaleY(0.55);
-  }
-  100% {
-    transform: translateX(-50%) translateZ(0) scaleY(1);
-  }
+  padding: 16px;
 }
 
 @keyframes fadein {
@@ -74,63 +98,4 @@
   to {
     opacity: 1;
   }
-}
-.waveWrapper {
-  overflow: hidden;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  margin: auto;
-  max-height: 100vh;
-}
-.waveWrapperInner {
-  position: absolute;
-  width: 100%;
-  overflow: hidden;
-  height: 100%;
-  bottom: -1px;
-  background-image: linear-gradient(to top, #86377b 20%, #27273c 80%);
-}
-.bgTop {
-  z-index: 15;
-  opacity: 0.5;
-}
-.bgMiddle {
-  z-index: 10;
-  opacity: 0.75;
-}
-.bgBottom {
-  z-index: 5;
-}
-.wave {
-  position: absolute;
-  left: 0;
-  width: 200%;
-  height: 100%;
-  background-repeat: repeat no-repeat;
-  background-position: 0 bottom;
-  transform-origin: center bottom;
-}
-.waveTop {
-  background-size: 50% 100px;
-}
-.waveAnimation .waveTop {
-  animation: move-wave 3s;
-  -webkit-animation: move-wave 3s;
-  -webkit-animation-delay: 1s;
-  animation-delay: 1s;
-}
-.waveMiddle {
-  background-size: 50% 120px;
-}
-.waveAnimation .waveMiddle {
-  animation: move_wave 10s linear infinite;
-}
-.waveBottom {
-  background-size: 50% 100px;
-}
-.waveAnimation .waveBottom {
-  animation: move_wave 15s linear infinite;
 }

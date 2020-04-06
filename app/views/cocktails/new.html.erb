@@ -1,2 +1,11 @@
-<h1>Cocktails#new</h1>
-<p>Find me in app/views/cocktails/new.html.erb</p>
+<div class="container">
+    <h1 class="text-white fadein cocktail-title">New Cocktail</h1>
+
+    <div class="show-cocktail shadow rounded fadein p-5">
+        <%= simple_form_for(@cocktail) do |f| %>
+        <%= f.input :name %>
+        <%= f.button :submit , class: "btn btn-success"%>
+        <% end %>
+
+    </div>
+</div>

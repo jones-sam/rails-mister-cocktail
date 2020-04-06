@@ -1,38 +1,32 @@
-<div class="waveWrapper waveAnimation">
-    <div class="waveWrapperInner bgTop">
-
-        <%# put stuff here %>
-        <div class="container">
-            <h1 class="text-white cocktail-title fadein"><%= @cocktail.name %></h1>
-            <div class="show-cocktail shadow rounded fadein">
-                <div class="d-flex m-5 h-100">
-                    <img class="align-self-center" src=<%= Faker::Placeholdit.image %> alt="">
-
-                    <div class="mt-5 ml-5">
-                        <h3>Instructions:</h3>
-                        <% @cocktail.doses.each do |dose| %>
-                        <p><%= dose.ingredient.name %>: <%= dose.description %></p>
-                        <% end %>
-
-                    </div>
-                </div>
+<%# put stuff here %>
+<div class="container">
+    <h1 class="text-white cocktail-title fadein"><%= @cocktail.name %></h1>
+    <div class="show-cocktail shadow rounded fadein">
+        <div class="row align-items-center">
+            <div class="col-sm-12 col-md-4">
+                <img src=<%= Faker::Placeholdit.image %> alt="">
 
             </div>
-        </div>
+
+            <div class="col-sm-12 col-md-4">
+                <h3>Instructions:</h3>
+                <% @cocktail.doses.each do |dose| %>
+                <p><%= dose.ingredient.name %>: <%= dose.description %></p>
+                <% end %>
+
+            </div>
+
+            <div class="col-sm-12 col-md-4">
+                <%= simple_form_for([@cocktail, @dose]) do |f| %>
+                <%= f.association :ingredient %>
+                <%= f.input :description %>
+                <%= f.submit "Submit", class: "btn btn-success" %>
+                <% end %>
+
+            </div>
 
 
-
-
-        <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')">
         </div>
     </div>
-    <div class="waveWrapperInner bgMiddle">
-        <div class="wave waveMiddle" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')">
 
-        </div>
-    </div>
-    <div class="waveWrapperInner bgBottom">
-        <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')">
-        </div>
-    </div>
 </div>
