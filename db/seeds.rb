@@ -20,13 +20,13 @@ ingredients = JSON.parse(response.string)
 ingredients['drinks'].each do |ingredient|
   i = Ingredient.create(name: ingredient['strIngredient1'])
 
-  cocktail = Cocktail.create(
-    name: Faker::Beer.name
-  )
+  # cocktail = Cocktail.create(
+  #   name: Faker::Beer.name
+  # )
 
-  Dose.create(
-    cocktail_id: cocktail.id,
-    ingredient_id: i.id,
-    description: Faker::Food.measurement
-  )
+  # Dose.create(
+  #   cocktail_id: cocktail.id,
+  #   ingredient_id: i.id,
+  #   description: Faker::Food.measurement
+  # )
 end

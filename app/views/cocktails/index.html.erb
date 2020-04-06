@@ -1,5 +1,5 @@
-<%# put stuff here %>
 <div class="container">
+
   <h1 class="text-white cocktail-title fadein">Mister Cocktail</h1>
   <div class="create-new-div">
     <%= link_to 'Create new drink', new_cocktail_path, class: "btn btn-light new-drink-btn fadein" %>
@@ -13,7 +13,10 @@
           <h4 class="text-center m-2"><%= cocktail.name %></h4>
           <hr class="w-100">
 
+
+          <% unless cocktail.ingredients.empty? %>
           <h6 class="ml-2 mt-1">Ingredients:</h6>
+          <% end %>
           <ul class="overflow-auto">
             <% cocktail.ingredients.each do |ingredient|%>
             <li><%= ingredient.name %></li>

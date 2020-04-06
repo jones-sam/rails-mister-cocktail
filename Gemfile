@@ -3,7 +3,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
 # Use postgresql as the database for Active Record
@@ -33,6 +32,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'faker'
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -52,3 +52,4 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.12.0'
 gem 'simple_form'
 gem 'irb'
+gem 'cloudinary', '~> 1.12.0'

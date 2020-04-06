@@ -4,7 +4,7 @@
     <div class="show-cocktail shadow rounded fadein">
         <div class="row ">
             <div class="col-sm-12 col-lg-4">
-                <img src=<%= Faker::Placeholdit.image %> alt="">
+                <%= cl_image_tag @cocktail.photo.key, width: 300, height: 300, crop: :fill %>
 
             </div>
 
